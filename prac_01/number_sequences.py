@@ -1,3 +1,5 @@
+import math
+
 first_number = int(input("Please enter the first number: "))
 second_number = int(input("PLease enter the second number: "))
 
@@ -10,17 +12,20 @@ menu_choice = str(input(">>> "))
 
 while menu_choice != "4":
     if menu_choice == "1":
-        for i in range(first_number, second_number):
+        for i in range(first_number, (second_number +1)):
             if i % 2 == 0:
                 print(i)
-            else:
-                none
-    elif menu_choice == "2"
-        for i in range(first_number, second_number):
+        menu_choice = str(input(">>> "))
+    elif menu_choice == "2":
+        for i in range(first_number, (second_number +1)):
             if i % 2 == 1:
                 print(i)
-            else:
-                none
-    elif menu_choice == "3"
-        for i in range(first_number, second_number):
-            if i ** (0.5) %
+        menu_choice = str(input(">>> "))
+    elif menu_choice == "3":
+        for i in range(first_number, (second_number +1)):
+            if (math.sqrt(i)).is_integer():
+                print(i)
+        menu_choice = str(input(">>> "))
+    else:
+        print("Invalid menu choice")
+        menu_choice = str(input(">>> "))
