@@ -10,12 +10,13 @@ import random
 VOWELS = "aeiou"
 CONSONANTS = "bcdfghjklmnpqrstvwxyz"
 
-word_format = "ccvcvvc"
+word_format = chr(random.randrange(33, 127))
+print(word_format)
 word = ""
-for kind in word_format:
-    if kind == "c":
+for kind in word_format.lower():
+    if kind in "c%":
         word += random.choice(CONSONANTS)
-    else:
+    elif kind in "v#":
         word += random.choice(VOWELS)
 
 print(word)
