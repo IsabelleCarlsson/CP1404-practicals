@@ -23,7 +23,6 @@ def main():
         # ignore directories, just process files
         if not os.path.isdir(filename):
             new_name = get_fixed_filename(filename)
-            print(new_name)
 
             # NOTE: These options won't just work...
             # they show you ways of renaming and moving files,
@@ -50,10 +49,13 @@ def main():
 def get_fixed_filename(filename):
     """Return a 'fixed' version of filename."""
     # First, replace the spaces and .TXT (the easy part)
-    new_name = filename.replace(" ", "_").replace(".TXT", ".txt")
-
-
-    return new_name
-
+    filename = filename.replace(" ", "_").replace(".TXT", ".txt")  # Can use replace method more than once!
+    if "_" not in filename:
+        filename_chars = list(filename)
+        for i, char in enumerate(filename_chars):
+            if i > 0 and char.isupper() and filename_chars[i - 1].isalpha():
+                filename_chars.insert(i, "_")
+        filename = "".join(filename_chars)
+    return filename
 
 main()
